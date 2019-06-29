@@ -16,57 +16,39 @@ Check the [PHP Quickstart](https://auth0.com/docs/quickstart/webapp/php) to bett
 
 ## Getting Started
 
-Lets get started.  The first thing to do is sign up for your Auth0 account.  Use the Auth0 link above and login.  After your authenticated you can begin to navigate around the Auth0 dashboard.  The dashboard is incredibly useful and well laid out so enjoy playing with the different sections to familiarize yourself with the layout.  Once your ready, head on over to Applications: ![image](https://user-images.githubusercontent.com/51866741/60369927-02160b80-99aa-11e9-9ca8-0b251198a9c5.png)
-You'll select Create new application and your journey begins.  To guide you through some of the setup here is some of Auth0's documentation on creating the application.  Come on back here when your ready for your for the quick start.  Since this application is done, you'll be able to simply clone this repository and get going right away.
+Lets get started.  The first thing to do is sign up for your Auth0 account.  Use the Auth0 link above and login.  After your authenticated you can begin to navigate around the Auth0 dashboard.  The dashboard is incredibly useful and well laid out so enjoy playing with the different sections to familiarize yourself with the layout.  Once your ready, head on over to Applications. ![image](https://user-images.githubusercontent.com/51866741/60377289-49ac8f80-99ca-11e9-992a-48f8d403163e.png)
 
-, 
-Before starting, make sure you have `composer` and `php` installed.
+You'll select Create new application and your journey begins.  Give this application a Name and go ahead and select "Regular Web Applications" which highlights it and click create.  This defaults you to the quick start page.  Before we get there, lets go ahead and look at settings.  A couple of things will be filled out for you alread.  Notice Domain, recognize that number scheme?  Its what is also listed next to your profile icon in the top right of the dashboard.  This is called a tenent.  We didn't choose one but you certainly can so feel free.   Client ID and Client Secret are going to be used very soon so just take note of them here.
 
-Rename the `.env.example` file to `.env` and populate it with your app's client ID, client secret, domain, and callback URL. These can be retrieved from your [Auth0 dashboard](https://manage.auth0.com).
+Head over to the Quick Start link and select PHP.  
+![image](https://user-images.githubusercontent.com/51866741/60378333-fc361f80-99d5-11e9-81ee-836af64b7694.png)
+
+Go ahead and read through the quick start, then fill out your URL callbacks just as stated. We'll be installing the dependancies shortly.  Instead of downloading the sample in the quick start, clone this repository to the directory of your choosing.  You'll be using this code as there's a bit more in here to complete all of our requirements. 
+
+## Let's Install
+
+*I ran this application on a Mac, so the commands and screenshots provide here will reflect that.  Windows will be very similar, just make sure you call commands specific to Windows and not Mac.*
+
+Open up a Terminal and navigate to the location where you cloned this code using ```cd``` and ```pwd``` to see where you are.  Type in bash so that your changed to the bash command processor.  
+
+```
+$ bash
+bash-3.2$ 
+```
+Now head on out https://getcomposer.org/download/ and run the script as instructed (copy the whole script and paste it into your command prompt).  This will install composer.  Get the dependency install out of the way now in preparation of running this app.  Type the following:
+```
+php composer.phar require auth0/auth0-php:"~5.0"
+```
+
+Next we need to open up the code in your editor of choice as a couple of things need to be updated.  Open up the file `.env` and populate it with your app's client ID, client secret, domain, and callback URL. These can be retrieved from your [Auth0 dashboard](https://manage.auth0.com).  Once done save the file and we'll get right into running the app.
 
 ## Running the App
 
-```bash
-composer install
+Back on your terminal type the following: 
+
+```
 php -S localhost:3000
 ```
 
-The app will be served at [http://localhost:3000/](http://localhost:3000/).
-
-## Running the App With Docker
-
-Before starting, make sure you have `docker` installed.
-
-Rename the `.env.example` file to `.env` and populate it like explained [previously](#getting-started).
-
-Execute in command line `sh exec.sh` to run the Docker in Linux, or `.\exec.ps1` to run the Docker in Windows.
-
-The app will be served at [http://localhost:3000/](http://localhost:3000/).
-
-## What is Auth0?
-
-Auth0 helps you to:
-
-* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-* Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-* Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when and where users are logging in.
-* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
-
-## Create a free account in Auth0
-
-1. Go to [Auth0](https://auth0.com) and click Sign Up.
-2. Use Google, GitHub or Microsoft Account to login.
-
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](https://auth0.com)
-
-## License
-
-This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
+The app will be served at [http://localhost:3000/](http://localhost:3000/).  That simply means type this in your browser URL.
+Thats it!  Your are now running this application.  To get the full use out of we get to now start playing with the Auth0 dashboard.  So lets go have some more fun. :-)
