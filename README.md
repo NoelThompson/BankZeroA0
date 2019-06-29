@@ -31,11 +31,14 @@ Go ahead and read through the quick start, then fill out your URL callbacks just
 
 Open up a Terminal and navigate to the location where you cloned this code using ```cd``` and ```pwd``` to see where you are.  Type in bash so that your changed to the bash command processor.  
 
-```...$ bash
+```
+$ bash
 bash-3.2$ 
 ```
 Now head on out https://getcomposer.org/download/ and run the script as instructed (copy the whole script and paste it into your command prompt).  This will install composer.  Get the dependency install out of the way now in preparation of running this app.  Type the following:
-```php composer.phar require auth0/auth0-php:"~5.0"```
+```
+php composer.phar require auth0/auth0-php:"~5.0"
+```
 
 Next we need to open up the code in your editor of choice as a couple of things need to be updated.  Open up the file `.env` and populate it with your app's client ID, client secret, domain, and callback URL. These can be retrieved from your [Auth0 dashboard](https://manage.auth0.com).  Once done save the file and we'll get right into running the app.
 
