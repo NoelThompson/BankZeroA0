@@ -16,7 +16,7 @@ Check the [PHP Quickstart](https://auth0.com/docs/quickstart/webapp/php) to bett
 
 ## Getting Started
 
-Lets get started.  The first thing to do is sign up for your Auth0 account.  Use the Auth0 link above and login.  After your authenticated you can begin to navigate around the Auth0 dashboard.  The dashboard is incredibly useful and well laid out so enjoy playing with the different sections to familiarize yourself with the layout.  Once your ready, head on over to Applications: ![image](https://user-images.githubusercontent.com/51866741/60369927-02160b80-99aa-11e9-9ca8-0b251198a9c5.png)
+Lets get started.  The first thing to do is sign up for your Auth0 account.  Use the Auth0 link above and login.  After your authenticated you can begin to navigate around the Auth0 dashboard.  The dashboard is incredibly useful and well laid out so enjoy playing with the different sections to familiarize yourself with the layout.  Once your ready, head on over to Applications: ![image](https://user-images.githubusercontent.com/51866741/60377289-49ac8f80-99ca-11e9-992a-48f8d403163e.png)
 You'll select Create new application and your journey begins.  To guide you through some of the setup here is some of Auth0's documentation on creating the application.  Come on back here when your ready for your for the quick start.  Since this application is done, you'll be able to simply clone this repository and get going right away.
 
 , 
