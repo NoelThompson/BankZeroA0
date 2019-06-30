@@ -47,7 +47,7 @@ So lets take a look at the GET to our API.  You can scroll down past the POST se
 
 https://github.com/NoelThompson/BankZeroA0/blob/e5f776a7ada16e9578e33f53cd116cbb4911d795/ae-api-access.php#L3-L36
 
-In this api endpoint we are using the userID to grab the roles for a specific user in our GET URL.  We pull that userid with the getuser command available via our Auth0 SDK.  
+In this api endpoint we are using the userID to grab the roles for a specific user in our GET URL.  We pull that userid with the getuser command available via our Auth0 SDK.  For more of the API endpoints available with the Authorization Extension check [here](https://auth0.com/docs/api/authorization-extension#get-user-roles).
 
 ## Run the App
 
