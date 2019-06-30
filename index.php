@@ -7,6 +7,7 @@
 
   require 'SendToAPI.php';
   require 'BZ-RBAC-API-Data.php';
+  require 'ae-api-access.php';
 
   use Auth0\SDK\Auth0;
 
@@ -84,10 +85,10 @@
                 }
                 $grinfo = getRolesInfo();
                 print_r($roles);*/
-                $response = getRolesInfo();
-                $roles = getUserRoles($response, $subStr);
+                //$response = getRolesInfo();
+                //$roles = getUserRoles($response, $subStr);
                 print_r('Roles assigned to you: ');
-                foreach($roles as $role){
+                /*foreach($roles as $role){
                   $tmpRole[] = $role;
                 }
                 if(empty($tmpRole)){
@@ -95,9 +96,27 @@
                 } else {
                 $list = implode(', ', $tmpRole);
                 print_r($list);
+              }*/
+
+
+                $userRolesResponse = apiUserRole($subStr);
+                //print_r($userRolesResponse);
+                responseRoleNames($userRolesResponse);
+                /*foreach($bzUserRoles['name'] as $bzRole){
+                  $tmpBzRole[] = $bzRole;
                 }
+                if(empty($tmpBzRole)){
+                  print_r('You have no roles assigned to you');
+                }
+                else{
+                  $bzRoleList = implode(', ', $tmpBzRole);
+                  print_r($bzRoleList);
+                }*/
+
                 ?> </span></h3>
-                <?php //include('GetToken.php');
+                <?php
+                  //include('ae-api-access.php');
+                  //include('GetToken.php');
                   //$bzapidata = getInfo();
                   //print_r($bzapidata);
                 ?>
