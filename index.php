@@ -7,7 +7,8 @@
 
   require 'SendToAPI.php';
   require 'BZ-RBAC-API-Data.php';
-  require 'ae-api-access.php';
+  require 'get-aeapi-response.php';
+  require 'get-bzapi-response.php';
 
   use Auth0\SDK\Auth0;
 
@@ -87,7 +88,7 @@
                 print_r($roles);*/
                 //$response = getRolesInfo();
                 //$roles = getUserRoles($response, $subStr);
-                print_r('Roles assigned to you: ');
+                print_r('Roles assigned to you in Authorization Extension: ');
                 /*foreach($roles as $role){
                   $tmpRole[] = $role;
                 }
@@ -112,7 +113,7 @@
                   $bzRoleList = implode(', ', $tmpBzRole);
                   print_r($bzRoleList);
                 }*/
-
+                echo bzApiUserRole();
                 ?> </span></h3>
                 <?php
                   //include('ae-api-access.php');

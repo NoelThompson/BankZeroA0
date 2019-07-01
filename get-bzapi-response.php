@@ -1,9 +1,9 @@
 <?php
 
-require 'post-bzauth-app.php';
+require 'post-bzapi-app.php';
 
-function apiUserRole($userID){
-  $responseTokenFromPost = postAuthExt();
+function bzApiUserRole(){
+  $responseTokenFromPost = postAccessToAPI();
   //print_r($responseTokenFromPost);
   $decodedJsonToken = json_decode($responseTokenFromPost);
   $token = $decodedJsonToken->{'access_token'};
@@ -12,7 +12,7 @@ function apiUserRole($userID){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://dev-fctx2bhe.us8.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api/users/".$userID."/roles",
+    CURLOPT_URL => "http://localhost:3100/api/bzapprole",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -34,21 +34,4 @@ function apiUserRole($userID){
     return $response;
   }
 }
-
-function responseRoleNames($response){
-  $roleNames = [];
-  $responseData = json_decode($response);
-  foreach($responseData as $roleName){
-    $roleNames [] = $roleName->name;
-  }
-  if(empty($roleNames)){
-    $reply = print_r('You have no roles assigned to you');
-  }
-  else{
-    $bzRoleList = implode(', ', $roleNames);
-    $reply = print_r($bzRoleList);
-  }
-  return $reply;
-}
-
 ?>
