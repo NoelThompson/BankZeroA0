@@ -1,2 +1,6 @@
 vendor/
 .env
+.dockerignore
+.DS_Store
+.htaccess
+A0AppREADME.md

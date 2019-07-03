@@ -6,12 +6,10 @@
   require __DIR__ . '/dotenv-loader.php';
 
   require 'SendToAPI.php';
-  require 'BZ-RBAC-API-Data.php';
   require 'get-aeapi-response.php';
   require 'get-bzapi-response.php';
 
   use Auth0\SDK\Auth0;
-
   use Auth0\SDK\JWTVerifier;
   use Auth0\SDK\Helpers\Cache\FileSystemCacheHandler;
 
@@ -32,14 +30,17 @@
     'client_secret' => $client_secret,
     'redirect_uri' => $redirect_uri,
     'audience' => $audience,
-    'scope' => 'openid profile',
+    'response type' => 'token id_token',
+    'scope' => 'openid profile read:mainpage edit:mainpage',
     'persist_id_token' => true,
     'persist_access_token' => true,
     'persist_refresh_token' => true,
   ]);
 
   $userInfo = $auth0->getUser();
+  $userToken = $auth0->getAccessToken();
   //print_r($userInfo);
+  //print_r($userToken);
 
 ?>
 <html>
@@ -78,6 +79,7 @@
                 //$subStrLen = strlen($subStr);
                 //$sub = substr($subStr, 6, $subStrLen);
                 echo $subStr.'</br>';
+                //print_r($userInfo); echo '</br>';
                 /*$roles = getUserRoles($sub);
                 if (is_array($roles)||is_object($roles)){
                   foreach($roles as $role){
@@ -113,7 +115,10 @@
                   $bzRoleList = implode(', ', $tmpBzRole);
                   print_r($bzRoleList);
                 }*/
-                echo bzApiUserRole();
+                //echo $userToken.'</br>';
+
+                $permissions = bzApiUserPermissions($userToken);
+                setPermissions($permissions);
                 ?> </span></h3>
                 <?php
                   //include('ae-api-access.php');

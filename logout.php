@@ -10,7 +10,7 @@ $redirect_uri  = getenv('AUTH0_CALLBACK_URL');
 $audience      = getenv('AUTH0_AUDIENCE');
 
 if($audience == ''){
-    $audience = 'https://' . $domain . '/userinfo';
+  $audience = 'https://' . $domain . '/userinfo';
 }
 
 $auth0 = new Auth0([

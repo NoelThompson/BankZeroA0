@@ -10,7 +10,10 @@ function postAccessToAPI(){
     CURLOPT_TIMEOUT => 30,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => "{\"client_id\":\"EtJMwPUuauvG7Tirv2UolC8ZxFQUKY0M\",\"client_secret\":\"amvdqHlemKlgBQK_aicGJJQd2mPE5ptkdexHtODX9zWbAXlb2qwJSdYY8O5mPESP\",\"audience\":\"http://localhost:3100\",\"grant_type\":\"client_credentials\"}",
+    CURLOPT_POSTFIELDS => "{\"client_id\":\"EtJMwPUuauvG7Tirv2UolC8ZxFQUKY0M\",
+      \"client_secret\":\"amvdqHlemKlgBQK_aicGJJQd2mPE5ptkdexHtODX9zWbAXlb2qwJSdYY8O5mPESP\",
+      \"audience\":\"http://localhost:3100\",
+      \"grant_type\":\"client_credentials\"}",
     CURLOPT_HTTPHEADER => array(
       "content-type: application/json"
     ),
