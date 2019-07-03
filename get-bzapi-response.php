@@ -54,7 +54,7 @@ function setPermissions($response){
     $reply = print_r('BZ Employee Role has been set for you through Auth0 RBAC');
   }
   if($response == 'false'){
-    $reply = print_r('You have no roles assigned to you for this application, please see your administrator. </br>');
+    $reply = print_r('You have no roles assigned to you, via RABC, for this application, please see your administrator. </br>');
   }
   /*else {
     $reply = print_r('you need to code a new permission');
