@@ -48,13 +48,13 @@ function setPermissions($response){
   //}
   //print_r($permissions);
   if(in_array("edit:mainpage", $permissions)){
-    $reply = print_r('BZ Manager Role has been set for you through Auth0 RBAC');
+    $reply = print_r('BZ Manager');
   }
   if(!in_array("edit:mainpage", $permissions) && in_array("read:mainpage", $permissions)){
-    $reply = print_r('BZ Employee Role has been set for you through Auth0 RBAC');
+    $reply = print_r('BZ Employee');
   }
   if($response == 'false'){
-    $reply = print_r('You have no roles assigned to you, via RABC, for this application, please see your administrator. </br>');
+    $reply = print_r('You have no roles assigned to you, please see your administrator. </br>');
   }
   /*else {
     $reply = print_r('you need to code a new permission');

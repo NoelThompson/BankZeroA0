@@ -54,8 +54,24 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
         <link href="public/app.css" rel="stylesheet">
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 75%;
+        }
 
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 7px;
+        }
 
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+    </head>
 
     </head>
     <body class="home">
@@ -64,21 +80,52 @@
               <?php if(!$userInfo): ?>
               <div class="login-box auth0-box before">
                 <img src="https://i.cloudup.com/StzWWrY34s.png" />
-                <h3>Auth0 Proof of Concept for BankZero</h3>
-                <p>Zero friction identity infrastructure, built for developers</p>
+                <img src="/Universal Login/icons8-bank-building-96.png" style="width:180px;height:180px;" />
+                <h3></h3>
+                <p><b>Auth0 Proof of Concept for BankZero</b></p>
                 <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="login.php">Sign In</a>
               </div>
               <?php else: ?>
               <div class="logged-in-box auth0-box logged-in">
-                <h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>
-                <img class="avatar" src="<?php echo $userInfo['picture'] ?>"/>
-                <h2>Welcome: <span class="nickname"><?php echo $userInfo['name'];
-                //error_log($userInfo['user_id'],0); ?></span></h2>
-                <h3>User ID: <span class="theuser"><?php
-                $subStr = $userInfo['sub'];
+                <!--<h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>-->
+                <h1 id="logo"><img src="/Universal Login/icons8-bank-building-96.png" style="width:128px;height:128px;" />
+                <br>
+                <font size="20"><b>Bank Zero</b></font></h1>
+
+                <!--<img class="avatar" src="<?php //echo $userInfo['picture'] ?>"/>-->
+                <!--h3 id="choices" class="container">
+                <button type="button" class="btn btn-primary btn-md" href="authExt.php">Authorization Extension</button>
+                <button type="button" class="btn btn-primary btn-md" href="rbac.php">RBAC</button>-->
+
+                <h3>Welcome: <!--<span class="nickname"> --><?php echo $userInfo['name'];
+                //error_log($userInfo['user_id'],0); ?><br><br></h3>
+
+                <table align="center">
+                  <tr>
+                    <th>Role Based Access Control Method</th>
+                    <th>User Assigned Roles</th>
+                  </tr>
+                  <tr>
+                    <td>Authorization Extension</td>
+                    <td><?php $subStr = $userInfo['sub'];
+                    $userRolesResponse = apiUserRole($subStr);
+                    responseRoleNames($userRolesResponse);?></td>
+                  </tr>
+                  <tr>
+                    <td>NEW RBAC Core</td>
+                    <td><?php $permissions = bzApiUserPermissions($userToken);
+                    setPermissions($permissions);
+                    ?></td>
+                  </tr>
+                </table>
+
+                <h3><br><br><br><?php
+
                 //$subStrLen = strlen($subStr);
                 //$sub = substr($subStr, 6, $subStrLen);
-                echo $subStr.'</br>';
+                //echo $subStr.'</br>';
+
+
                 //print_r($userInfo); echo '</br>';
                 /*$roles = getUserRoles($sub);
                 if (is_array($roles)||is_object($roles)){
@@ -90,7 +137,7 @@
                 print_r($roles);*/
                 //$response = getRolesInfo();
                 //$roles = getUserRoles($response, $subStr);
-                print_r('Roles assigned to you in Authorization Extension: ');
+                //print_r('Roles assigned to you in Authorization Extension: ');
                 /*foreach($roles as $role){
                   $tmpRole[] = $role;
                 }
@@ -102,9 +149,9 @@
               }*/
 
 
-                $userRolesResponse = apiUserRole($subStr);
+
                 //print_r($userRolesResponse);
-                responseRoleNames($userRolesResponse);
+
                 /*foreach($bzUserRoles['name'] as $bzRole){
                   $tmpBzRole[] = $bzRole;
                 }
@@ -116,10 +163,8 @@
                   print_r($bzRoleList);
                 }*/
                 //echo $userToken.'</br>';
-
-                $permissions = bzApiUserPermissions($userToken);
-                setPermissions($permissions);
-                ?> </span></h3>
+                ?>
+                 </span></h3>
                 <?php
                   //include('ae-api-access.php');
                   //include('GetToken.php');
