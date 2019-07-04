@@ -1,12 +1,33 @@
-# PHP Authentication for RS256-Signed Tokens
+# BZ Authorization API
 
-This sample demonstrates how to protect endpoints in a PHP API by verifying an incoming JWT signed by Auth0. The token must be signed with the RS256 algorithm and must be verified against your Auth0 JSON Web Key Set.
+This API has been created to demonstrate Auth0's new Role Based Access Control core.  The API verifies an incoming JWT signed by Auth0 for the user that logs in. 
 
 ## Getting Started
 
-If you haven't already done so, [sign up](https://auth0.com) for your free Auth0 account and create a new client in the [dashboard](https://manage.auth0.com).
+To use this API we'll need to walk through the setup and get an understanding of how to configure it for opperation.  One key element that we will do is run this API seperately from our program just like any other API is running, typically on a server.  Here we'll run it locally on a different port from our BZ application.
 
-Clone the repo or download it from the PHP API quickstart page in Auth0's documentation.
+To start us off lets first create the API in our Auth0 dashboard.  Head back into APIs and use the Create API button.  For this API the identifier or "Audience" will be local.  Auth0 is not going to be calling your API but your application will.  For this API I chose to run it at the following address:
+
+```http://localhost:3100```
+
+Therefore after naming my API, that is the address scheme that I put in. 
+
+## Adjust API settings
+
+The point of all this is that we get to set RBAC settings.  So lets do that now.  
+
+![image](https://user-images.githubusercontent.com/51866741/60689198-90d5cd00-9e6f-11e9-89c4-cae044482d27.png)
+
+Our particular app utilizes the Permissions delivered in the Access Token, so lets take advantage of that and complete that enablement.  
+
+## Permissions
+
+Since we are delivering permissions in our access token, and our application is code to specific permissions, please create these permissions exactly as indicated here.  After you are able to examine the code and see how it works, then feel free to create more Permissions to use in other Roles.  
+
+To create the Permissions simply type in the box and select add, just as is shown below:
+
+![image](https://user-images.githubusercontent.com/51866741/60689337-363d7080-9e71-11e9-9dc9-091a3dc16570.png)
+
 
 ## Setup the `.env` File
 
