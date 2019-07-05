@@ -28,65 +28,49 @@ To create the Permissions simply type in the box and select add, just as is show
 
 ![image](https://user-images.githubusercontent.com/51866741/60689337-363d7080-9e71-11e9-9dc9-091a3dc16570.png)
 
+The permissions you'll be putting in are:
+```read:mainpage```
+```edit:mainpage```
 
-## Setup the `.env` File
+When you run the application and the user has a certain role, which we'll get to in a sec, you'll notice the BZ application will give you a text box; based on the permissions, attached to the role, the user will be able to edit that text box or not.
 
-If you download this sample from the PHP API quickstart page, a `.env` file will come pre-populated with your API identifier and Auth0 domain. If you clone the repo from GitHub, you will need to rename `.env.example` to `.env` and provide these values manually.
+## Create Roles
 
-## Install the Dependencies and Start the API
+At this point in using the dashboard you were probably wondering what the "Roles" section of Users & Roles was all about, as you recall when we worked on the authorization extension, we set Roles there.  Roles in this area of the Auth0 dashboard is significant to our RBAC core.  It is very functional, easy to use, and can be updated without opening a new browser tab.  Go on in at select Roles, then Create Role.
 
-```bash
-composer install
-php -S localhost:3010
-```
+![image](https://user-images.githubusercontent.com/51866741/60698721-9b12be00-9ea5-11e9-9135-5bb162913810.png)
+![image](https://user-images.githubusercontent.com/51866741/60698742-b1207e80-9ea5-11e9-870f-3669089ff9c5.png)
 
-The API will be served at `http://localhost:3010`.
+The name for the roles we'll be creating here are: 
+```BZ Employee```
+ and 
+```BZ Manager```
+.  Once created you can assign some users and Permissions to each role.  Lets do permissions first.  Select the permissions link just under your Role title.  From there its a simple add Permissions.  You will now be presented with the Add Permissions popup.  Here you'll need to select your API.  For us this will be the API we created earlier and set our ```localhost:3100``` for.
 
-## Endpoints
+![image](https://user-images.githubusercontent.com/51866741/60699395-808e1400-9ea8-11e9-93f4-609a827abc81.png)
 
-The sample includes these endpoints:
+Once selected choose the appropriate role for the permissions.  BZ Manager should get ```read:mainpage``` and ```edit:mainpage``` while BZ Employee will only recieve ```read:mainpage``` for this exercise.
 
-**GET** /api/public
-* An unprotected endpoint which returns a message on success. Does not require a valid JWT access token.
+![image](https://user-images.githubusercontent.com/51866741/60699525-22156580-9ea9-11e9-9a15-385575e89725.png)
 
-**GET** /api/private
-* A protected endpoint which returns a message on success. Requires a valid JWT access token.
+Make your selection and click Add Permissions.
 
-**GET** /api/private-scoped
-* A protected endpoint which returns a message on success. Requires a valid JWT access token and a scope of read:messages.
+What Permissions done, hit the Users link and select add users.  Now the assign window appears; simply type the name of a user to begin the search.  When found select Assign.  Do this for both roles so we are able to have a good experience within the application.  When your settings, permissions, and users are done, hit "<- Back to Roles" to exit.  
 
-## Running the Example With Docker
+If you find yourself in the Roles main window, there is a shortcut to assigning users as depicted below.
 
-In order to run the example with [Docker](https://www.docker.com/) you need to have `docker` installed.
+![image](https://user-images.githubusercontent.com/51866741/60698890-64897300-9ea6-11e9-8e8b-71b138b0d685.png)
 
-You also need to set the environment variables as explained [previously](#setup-the-env-file).
+## Time to Setup the API
 
-Execute in command line `sh exec.sh` to run the Docker in Linux, or `.\exec.ps1` to run the Docker in Windows.
+Your done with the dashboard for now.  We need to start putting the rest of the puzzle together for RBAC.  For that lets move back to our desktop.  Since you have already installed the app locally your almost there for the API too.  Head into this folder in your editor and update the ```.env``` file.  The setting you'll need to update here is the Domain.  This needs to be your tenent.  The reason for this is that when this is working, we will need to verify the access token that is being passed to the API.  
 
-## What is Auth0?
+## Run the API
 
-Auth0 helps you to:
+Last step here is to run the API.  Since we'll be running our app locally as well, just open a new command window and change the directory to this one one your local machine.  From there you should be able to run the API.
 
-* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-* Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-* Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when and where users are logging in.
-* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+Simply type in
 
-## Create a free Auth0 account
+```php -S localhost:3100```
 
-1. Go to [Auth0](https://auth0.com/signup) and click Sign Up.
-2. Use Google, GitHub or Microsoft Account to login.
-
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](https://auth0.com)
-
-## License
-
-This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
+Now your running the API!
