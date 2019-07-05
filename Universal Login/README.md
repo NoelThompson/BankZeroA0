@@ -13,4 +13,4 @@ For company logo I've provide you with the png file in this repository, but you 
 
 ## Authorization extension
 
-We are going to go over authorization extension next, which will wrap up our PoC.
+We are going to go over [authorization extension](https://github.com/NoelThompson/BankZeroA0/tree/master/Authorization%20Extension) next, which will wrap up our PoC.
