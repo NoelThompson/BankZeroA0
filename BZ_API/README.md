@@ -67,7 +67,7 @@ Your done with the dashboard for now.  We need to start putting the rest of the 
 
 ## Run the API
 
-Last step here is to run the API.  Since we'll be running our app locally as well, just open a new command window and change the directory to this one one your local machine.  From there you should be able to run the API.
+Last step here is to run the API.  Since we'll be running our app locally as well, just open a new terminal window and change the directory to where is api is located on your local machine.  From there you should be able to run the API.
 
 Simply type in
 
