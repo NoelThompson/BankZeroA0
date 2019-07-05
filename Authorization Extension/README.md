@@ -53,13 +53,14 @@ In this api endpoint we are using the userID to grab the roles for a specific us
 
 Wehoo, we are ready folks.  Lets run this app and see our results. 
 
-![image](https://user-images.githubusercontent.com/51866741/60398684-f6dcf000-9b0f-11e9-9fe6-417c93d27600.png)
+![image](https://user-images.githubusercontent.com/51866741/60743293-c63cf200-9f25-11e9-813a-7862444eb92a.png)
 
 Click Login and now you get to our customized Lock screen.  We can now see the colors we selected to personalize this for BankZero, we also see our Social Connections, and SignUp area.  Lets type in a username and password for a user that has at least one of selected roles you setup for authorization extension.
 
-![image](https://user-images.githubusercontent.com/51866741/60398709-53d8a600-9b10-11e9-8fab-188a8c0c6d23.png)
+![image](https://user-images.githubusercontent.com/51866741/60743362-1e73f400-9f26-11e9-9b2b-223450c5e929.png)
 
 Our Results show exactly what BankZero wanted out of this exersice and also illistrates the ease of which we put this together.  On our results page we see what the user ID is.  This is what we used to put into our API endpoint call.  The next line shows the results of that call.  We see that the user in the screen shot below has two roles, both Manager and Employee.  That result can now be used for further role programming and also provides the basis for how to get information from our API.
 
-![image](https://user-images.githubusercontent.com/51866741/60398815-7a4b1100-9b11-11e9-867d-f389fb709526.png)
+![image](https://user-images.githubusercontent.com/51866741/60743477-a9ed8500-9f26-11e9-9b19-6caada7ae625.png)
 
+Shall we try our hand at the Bonus and make Bank Zero really pleased?  [YES](https://github.com/NoelThompson/BankZeroA0/tree/master/BZ_API)
