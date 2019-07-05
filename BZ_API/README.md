@@ -1,6 +1,6 @@
 # BZ Authorization API
 
-This API has been created to demonstrate Auth0's new Role Based Access Control core.  The API verifies an incoming JWT signed by Auth0 for the user that logs in. 
+This API has been created to demonstrate Auth0's new Role Based Access Control core.  The API verifies an incoming JWT signed by Auth0 for the user that logs in.  It then reads the permissions of a user and responds back indicating the role the user is in.
 
 ## Getting Started
 
@@ -18,11 +18,11 @@ The point of all this is that we get to set RBAC settings.  So lets do that now.
 
 ![image](https://user-images.githubusercontent.com/51866741/60689198-90d5cd00-9e6f-11e9-89c4-cae044482d27.png)
 
-Our particular app utilizes the Permissions delivered in the Access Token, so lets take advantage of that and complete that enablement.  
+Our particular app utilizes the Permissions delivered in the Access Token, so lets take advantage of that setting and complete that enablement.  
 
 ## Permissions
 
-Since we are delivering permissions in our access token, and our application is code to specific permissions, please create these permissions exactly as indicated here.  After you are able to examine the code and see how it works, then feel free to create more Permissions to use in other Roles.  
+Since we are delivering permissions in our access token, and our application is coded to specific permissions, please create these permissions exactly as indicated here.  After you are able to examine the code and see how it works, then feel free to create more Permissions to use in other Roles and adjust the code.  
 
 To create the Permissions simply type in the box and select add, just as is shown below:
 
