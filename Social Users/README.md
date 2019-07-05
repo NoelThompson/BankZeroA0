@@ -12,5 +12,5 @@ For this exercise I naturally chose "Git Hub" and then I also selected "Google".
 Enabling simply requires clicking on the slider to move it to green.
 
 ## Move on to rules
-Since Sign up is so easy with Auth0 (you'll see soon), lets move on and work on our whitelist.  We want to make sure we set this rule so that BankZero will be able to see how it works.
+Since Sign up is so easy with Auth0 (you'll see soon), lets move on and work on our [whitelist](https://github.com/NoelThompson/BankZeroA0/tree/master/Rules).  We want to make sure we set this rule so that BankZero will be able to see how it works.
 
