@@ -63,4 +63,4 @@ Our Results show exactly what BankZero wanted out of this exersice and also illi
 
 ![image](https://user-images.githubusercontent.com/51866741/60743477-a9ed8500-9f26-11e9-9b19-6caada7ae625.png)
 
-Shall we try our hand at the Bonus and make Bank Zero really pleased?  [YES](https://github.com/NoelThompson/BankZeroA0/tree/master/BZ_API)
+Shall we try our hand at the Bonus and make Bank Zero really pleased?  [YES](https://github.com/NoelThompson/BankZeroA0/blob/master/BZ_API/README.md)
