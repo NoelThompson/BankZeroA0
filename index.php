@@ -5,7 +5,7 @@
 
   require __DIR__ . '/dotenv-loader.php';
 
-  require 'SendToAPI.php';
+  // Require the responses from both GET files
   require 'get-aeapi-response.php';
   require 'get-bzapi-response.php';
 
@@ -30,8 +30,7 @@
     'client_secret' => $client_secret,
     'redirect_uri' => $redirect_uri,
     'audience' => $audience,
-    'response type' => 'token id_token',
-    'scope' => 'openid profile read:mainpage edit:mainpage',
+    'scope' => 'openid profile',
     'persist_id_token' => true,
     'persist_access_token' => true,
     'persist_refresh_token' => true,
@@ -54,6 +53,7 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
         <link href="public/app.css" rel="stylesheet">
+
     <style>
         table {
           font-family: arial, sans-serif;
@@ -71,7 +71,6 @@
           background-color: #dddddd;
         }
     </style>
-    </head>
 
     </head>
     <body class="home">
@@ -79,27 +78,26 @@
             <div class="login-page clearfix">
               <?php if(!$userInfo): ?>
               <div class="login-box auth0-box before">
+                <!-- Displays Auth0 and Bank0 icons side by side -->
                 <img src="https://i.cloudup.com/StzWWrY34s.png" />
                 <img src="/Universal Login/icons8-bank-building-96.png" style="width:180px;height:180px;" />
                 <h3></h3>
                 <p><b>Auth0 Proof of Concept for BankZero</b></p>
+                <!-- Login Button -->
                 <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="login.php">Sign In</a>
               </div>
               <?php else: ?>
               <div class="logged-in-box auth0-box logged-in">
-                <!--<h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>-->
+                <!-- Provides Bank Zero's icon -->
                 <h1 id="logo"><img src="/Universal Login/icons8-bank-building-96.png" style="width:128px;height:128px;" />
                 <br>
                 <font size="20"><b>Bank Zero</b></font></h1>
 
-                <!--<img class="avatar" src="<?php //echo $userInfo['picture'] ?>"/>-->
-                <!--h3 id="choices" class="container">
-                <button type="button" class="btn btn-primary btn-md" href="authExt.php">Authorization Extension</button>
-                <button type="button" class="btn btn-primary btn-md" href="rbac.php">RBAC</button>-->
+                <!-- Name pulled from getuser access token -->
+                <h3>Welcome: <?php echo $userInfo['name'];
+                ?><br><br></h3>
 
-                <h3>Welcome: <!--<span class="nickname"> --><?php echo $userInfo['name'];
-                //error_log($userInfo['user_id'],0); ?><br><br></h3>
-
+                <!-- Creates a table that displays both styles of RBAC.  Demonstrates the results of each type. -->
                 <table align="center">
                   <tr>
                     <th>Role Based Access Control Method</th>
@@ -107,70 +105,37 @@
                   </tr>
                   <tr>
                     <td>Authorization Extension</td>
-                    <td><?php $subStr = $userInfo['sub'];
-                    $userRolesResponse = apiUserRole($subStr);
-                    responseRoleNames($userRolesResponse);?></td>
+                    <td><?php
+                      $subStr = $userInfo['sub'];
+                      $userRolesResponse = apiUserRole($subStr);
+                      responseRoleNames($userRolesResponse);
+                    ?></td>
                   </tr>
                   <tr>
                     <td>NEW RBAC Core</td>
-                    <td><?php $permissions = bzApiUserPermissions($userToken);
-                    setPermissions($permissions);
+                    <td><?php
+                      $permissions = bzApiUserPermissions($userToken);
+                      print_r(setPermissions($permissions));
                     ?></td>
                   </tr>
                 </table>
 
-                <h3><br><br><br><?php
-
-                //$subStrLen = strlen($subStr);
-                //$sub = substr($subStr, 6, $subStrLen);
-                //echo $subStr.'</br>';
-
-
-                //print_r($userInfo); echo '</br>';
-                /*$roles = getUserRoles($sub);
-                if (is_array($roles)||is_object($roles)){
-                  foreach($roles as $role){
-                    print($role['name'].'</br>');
-                  }
-                }
-                $grinfo = getRolesInfo();
-                print_r($roles);*/
-                //$response = getRolesInfo();
-                //$roles = getUserRoles($response, $subStr);
-                //print_r('Roles assigned to you in Authorization Extension: ');
-                /*foreach($roles as $role){
-                  $tmpRole[] = $role;
-                }
-                if(empty($tmpRole)){
-                  print_r('You have no roles assigned to you');
-                } else {
-                $list = implode(', ', $tmpRole);
-                print_r($list);
-              }*/
-
-
-
-                //print_r($userRolesResponse);
-
-                /*foreach($bzUserRoles['name'] as $bzRole){
-                  $tmpBzRole[] = $bzRole;
-                }
-                if(empty($tmpBzRole)){
-                  print_r('You have no roles assigned to you');
-                }
-                else{
-                  $bzRoleList = implode(', ', $tmpBzRole);
-                  print_r($bzRoleList);
-                }*/
-                //echo $userToken.'</br>';
-                ?>
-                 </span></h3>
+                <!-- Edit box.  Shows an editbox that can be edited for the Manager and a Read Only box for the Employee -->
+                <h3><br>
+                <form>
                 <?php
-                  //include('ae-api-access.php');
-                  //include('GetToken.php');
-                  //$bzapidata = getInfo();
-                  //print_r($bzapidata);
-                ?>
+                if(setPermissions($permissions) == 'BZ Manager'){ ?>
+                  <input type="text" name="Manager" value="edit me"><br>
+                <?php
+                }
+                if(setPermissions($permissions) == 'BZ Employee'){ ?>
+                  <input type="text" name="Employee" value="can't edit me" readonly><br>
+                <?php
+                } ?>
+                </form>
+                <br><br></h3>
+
+                <!-- Logout Button -->
                 <a id="qsLogoutBtn" class="btn btn-warning btn-logout" href="/logout.php">Logout</a>
               </div>
               <?php endif ?>

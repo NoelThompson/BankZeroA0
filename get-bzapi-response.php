@@ -1,13 +1,6 @@
 <?php
 
-//require 'post-bzapi-app.php';
-
 function bzApiUserPermissions($token){
-  //$responseTokenFromPost = postAccessToAPI();
-  //print_r($responseTokenFromPost);
-  //$decodedJsonToken = json_decode($responseTokenFromPost);
-  //$token = $decodedJsonToken->{'access_token'};
-  //print_r($token);
 
   $curl = curl_init();
 
@@ -36,25 +29,18 @@ function bzApiUserPermissions($token){
 }
 
 function setPermissions($response){
-  //$permissions = [];
   //print_r($response);
   $noQuotes = str_replace('"', "", $response);
-  //print_r($response).'</br>';
   $permissions = explode(" ", $noQuotes);
-  //echo $userPermissions[0];
-  //$responseData = json_decode($response);
-  //foreach($usersPermissions as $PermissionName){
-  //  $permissions [] = $PermissionName->;
-  //}
-  //print_r($permissions);
+
   if(in_array("edit:mainpage", $permissions)){
-    $reply = print_r('BZ Manager');
+    $reply = "BZ Manager";
   }
   if(!in_array("edit:mainpage", $permissions) && in_array("read:mainpage", $permissions)){
-    $reply = print_r('BZ Employee');
+    $reply = "BZ Employee";
   }
   if($response == 'false'){
-    $reply = print_r('You have no roles assigned to you, please see your administrator. </br>');
+    $reply = "You have no roles assigned to you, please see your administrator.";
   }
   /*else {
     $reply = print_r('you need to code a new permission');

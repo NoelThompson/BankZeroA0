@@ -39,45 +39,17 @@ class Main {
           return true;
       }
     }
-
     return false;
   }
 
   public function checkPermissions(){
-    //print($this->tokenInfo);
-    //$userPermissions = [];
     if (!empty($this->tokenInfo->permissions)){
       $permissions = implode(" ", $this->tokenInfo->permissions);
-      //print($permissions);
-      /*foreach ($permissions as $pfu){
-        //print($p).'</br>';
-        $userPermissions [] = $pfu;
-        //if ($p === $permission)
-        //  return true;
-      }
-      //print($userPermissions);
-      //return $userPermissions;*/
       return $permissions;
     }
     else {
       return false;
     }
-  }
-
-  function getUserRoles($response, $userID)
-  {
-      $roles = [];
-      $data =json_decode($response);
-      //print_r($data);
-      foreach($data->roles as $role)
-      {
-          foreach($role->users as $roleuser)
-          {
-              if($roleuser == $userID)
-                  $roles [] = $role->name;
-          }
-      }
-      return $roles;
   }
 
   public function publicEndpoint() {
@@ -98,27 +70,6 @@ class Main {
     return array(
       "status" => "ok",
       "message" => "Hello from a private endpoint! You need to be authenticated and a scope of read:messages to see this."
-    );
-  }
-
-  public function readmainpageEndpoint() {
-    return array(
-      "status" => "ok",
-      "message" => "Hello, you've been granted read main page access via Auth0's RBAC."
-    );
-  }
-
-  public function editmainpageEndpoint() {
-    return array(
-      "status" => "ok",
-      "message" => "Hello, you've been granted EDIT main page access via Auth0's RBAC."
-    );
-  }
-
-  public function bzapproleEndpoint() {
-    return array(
-      "status" => "ok",
-      "message" => "Hi you are accessing the Bank Zero API end point to view Roles"
     );
   }
 }

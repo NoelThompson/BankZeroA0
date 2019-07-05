@@ -121,7 +121,6 @@
 
   $router->get('/api/private-permissions', function() use ($app){
     header('Content-Type: application/json; charset=utf-8');
-    //echo json_encode($app->permissionsEndpoint());
     echo json_encode($app->checkPermissions());
   });
 

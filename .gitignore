@@ -1,6 +1,11 @@
 vendor/
-.env
 .dockerignore
 .DS_Store
 .htaccess
-A0AppREADME.md
+composer.json
+composer.lock
+composer.phar
+Dockerfile
+dotenv-loader.php
+exec.ps1
+exec.sh
