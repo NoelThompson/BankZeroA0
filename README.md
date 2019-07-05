@@ -14,6 +14,8 @@ Check the [PHP Quickstart](https://auth0.com/docs/quickstart/webapp/php) to bett
 5. BankZero only wants users with the email domain "examplewidgets.com" to be able to login (add social domains too)
 6. Authorization Extension, provided by Auth0, needs to be utilized so that the capabilities of roles can be demonstrated.
 
+Bonus: Utilize Auth0's new RBAC feature
+
 ## Getting Started
 
 Lets get started.  The first thing to do is sign up for your Auth0 account.  Use the Auth0 link above and login.  After your authenticated you can begin to navigate around the Auth0 dashboard.  The dashboard is incredibly useful and well laid out so enjoy playing with the different sections to familiarize yourself with the layout.  Once your ready, head on over to Applications. ![image](https://user-images.githubusercontent.com/51866741/60377289-49ac8f80-99ca-11e9-992a-48f8d403163e.png)
@@ -52,3 +54,5 @@ php -S localhost:3000
 
 The app will be served at [http://localhost:3000/](http://localhost:3000/).  That simply means type this in your browser URL.
 Thats it!  Your are now running this application.  To get the full use out of we get to now start playing with the Auth0 dashboard.  So lets go have some more fun. :-)
+
+[Create users](https://github.com/NoelThompson/BankZeroA0/tree/master/Create%20Users)
