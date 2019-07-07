@@ -38,4 +38,4 @@ Remember when I said to take note of the e-mail domain in the create user step? 
 Lastly, select save after you've had a chance to update the domains to match your created users and social domains your using.
 
 ## Customize your lock screen next
-The next part of our journey is to customize our lock screen.
+The next part of our journey is to customize our [lock screen](https://github.com/NoelThompson/BankZeroA0/tree/master/Universal%20Login).

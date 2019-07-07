@@ -33,5 +33,5 @@ You may also want to Edit the name to personalize this account a bit more.
 
 ## What other types of users can I create?
 
-We'll focus on social provider logins next.
+We'll focus on [social provider](https://github.com/NoelThompson/BankZeroA0/tree/master/Social%20Users) logins next.
 

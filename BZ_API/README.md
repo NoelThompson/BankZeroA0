@@ -74,3 +74,15 @@ Simply type in
 ```php -S localhost:3100```
 
 Now your running the API!
+
+## Run the App
+
+We've done it all.  Lets check out our spoils and run the main app in the other console window.  ```php -S localhost:3000```
+
+After you proceed through login you will get to the main page and see we have setup two Roles using both RBAC technologies and for the core method we get to use the permissions and edit a text box or not.  
+
+![image](https://user-images.githubusercontent.com/51866741/60743758-c938e200-9f27-11e9-9713-cefc42b4a939.png)
+
+This been a great exercise and I hope you have enjoyed and learned as much as I have.  
+
+[Home](https://github.com/NoelThompson/BankZeroA0)
