@@ -1,4 +1,33 @@
 <?php
+function setPermissions($response){
+  //print_r($response);
+  $noQuotes = str_replace('"', "", $response);
+  //$permissions = explode(" ", $noQuotes);
+
+  /*if(in_array("edit:mainpage", $permissions)){
+    $reply = "BZ Manager";
+  }
+  if(!in_array("edit:mainpage", $permissions) && in_array("read:mainpage", $permissions)){
+    $reply = "BZ Employee";
+  }
+  if($response == 'false'){
+    $reply = "You have no roles assigned to you, please see your administrator.";
+  }
+  /*else {
+    $reply = print_r('you need to code a new permission');
+  }*/
+  //return $reply;
+  return $noQuotes;
+}
+?>
+
+<?php
+//    $permissions = implode(" ", $this->tokenInfo->permissions);
+//    return $permissions;
+?>
+
+
+<?php
 //'response type' => 'token id_token',
 // Scope shows the permissions we'll need in the token
 //'scope' => 'openid profile read:mainpage edit:mainpage',

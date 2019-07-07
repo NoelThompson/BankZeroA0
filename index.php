@@ -114,21 +114,20 @@
                   <tr>
                     <td>NEW RBAC Core</td>
                     <td><?php
-                      $permissions = bzApiUserPermissions($userToken);
-                      print_r(setPermissions($permissions));
+                      print_r(bzApiUserPermissions($userToken));
                     ?></td>
                   </tr>
                 </table>
 
-                <!-- Edit box.  Shows an editbox that can be edited for the Manager and a Read Only box for the Employee -->
+                <!-- Edit box.  Shows an edit box that can be edited for the Manager and a Read Only box for the Employee -->
                 <h3><br>
                 <form>
                 <?php
-                if(setPermissions($permissions) == 'BZ Manager'){ ?>
+                if(bzApiUserPermissions($userToken) == 'BZ Manager'){ ?>
                   <input type="text" name="Manager" value="edit me"><br>
                 <?php
                 }
-                if(setPermissions($permissions) == 'BZ Employee'){ ?>
+                if(bzApiUserPermissions($userToken) == 'BZ Employee'){ ?>
                   <input type="text" name="Employee" value="can't edit me" readonly><br>
                 <?php
                 } ?>

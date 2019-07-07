@@ -24,27 +24,8 @@ function bzApiUserPermissions($token){
     echo "cURL Error #:" . $err;
   } else {
     //echo $response;
-    return $response;
+    $noQuotes = str_replace('"', "", $response);
+    return $noQuotes;
   }
-}
-
-function setPermissions($response){
-  //print_r($response);
-  $noQuotes = str_replace('"', "", $response);
-  $permissions = explode(" ", $noQuotes);
-
-  if(in_array("edit:mainpage", $permissions)){
-    $reply = "BZ Manager";
-  }
-  if(!in_array("edit:mainpage", $permissions) && in_array("read:mainpage", $permissions)){
-    $reply = "BZ Employee";
-  }
-  if($response == 'false'){
-    $reply = "You have no roles assigned to you, please see your administrator.";
-  }
-  /*else {
-    $reply = print_r('you need to code a new permission');
-  }*/
-  return $reply;
 }
 ?>

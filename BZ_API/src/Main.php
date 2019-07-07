@@ -41,14 +41,26 @@ class Main {
     }
     return false;
   }
-
+  //Break down token and extract Permissions.  Return what a role would be matching for the matching permission
   public function checkPermissions(){
     if (!empty($this->tokenInfo->permissions)){
-      $permissions = implode(" ", $this->tokenInfo->permissions);
-      return $permissions;
+      foreach ($this->tokenInfo->permissions as $p){
+        //echo($p);
+        if ('edit:mainpage' == $p){
+          return "BZ Manager";
+        }
+        if ('edit:mainpage' !== $p){
+          if ('read:mainpage' == $p){
+            return "BZ Employee";
+          }
+          else {
+            return "You do not have a role for this application";
+          }
+        }
+      }
     }
     else {
-      return false;
+      return "You have no roles assigned to you";
     }
   }
 
