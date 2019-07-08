@@ -9,18 +9,18 @@ Check the [PHP Quickstart](https://auth0.com/docs/quickstart/webapp/php) to bett
 
 1. BankZero needs users to be able to sign up with a user name and password in the Auth0 databases
 2. Existing users need to be able to authenticate with a user name and password
-3. The Auth0 Lock sign in screen needs to be customized to align with BankZero's brand
-4. Users should be able to login with two Social providers
-5. BankZero only wants users with the email domain "examplewidgets.com" to be able to login (add social domains too)
+3. The Auth0 Lock / Sign In screen needs to be customized to align with BankZero's brand
+4. Users should be able to Login with two Social providers
+5. BankZero only wants users with the email domain "examplewidgets.com" or "bankzero.com" to be able to login (add social domains too)
 6. Authorization Extension, provided by Auth0, needs to be utilized so that the capabilities of roles can be demonstrated.
 
-Bonus: Utilize Auth0's new RBAC feature
+Bonus: Utilize Auth0's new core RBAC feature
 
 ## Getting Started
 
 Lets get started.  The first thing to do is sign up for your Auth0 account.  Use the Auth0 link above and login.  After your authenticated you can begin to navigate around the Auth0 dashboard.  The dashboard is incredibly useful and well laid out so enjoy playing with the different sections to familiarize yourself with the layout.  Once your ready, head on over to Applications. ![image](https://user-images.githubusercontent.com/51866741/60377289-49ac8f80-99ca-11e9-992a-48f8d403163e.png)
 
-You'll select Create new application and your journey begins.  Give this application a Name and go ahead and select "Regular Web Applications" which highlights it and click create.  This defaults you to the quick start page.  Before we get there, lets go ahead and look at settings.  A couple of things will be filled out for you alread.  Notice Domain, recognize that number scheme?  Its what is also listed next to your profile icon in the top right of the dashboard.  This is called a tenent.  We didn't choose one but you certainly can so feel free.   Client ID and Client Secret are going to be used very soon so just take note of them here.
+You'll select Create new application and your journey begins.  Give this application a Name and go ahead and select "Regular Web Applications", which highlights it, and click create.  This defaults you to the quick start page.  Before we get there, lets go ahead and look at settings.  A couple of things will be filled out for you already.  Notice Domain, recognize that number scheme?  Its what is also listed next to your profile icon in the top right of the dashboard.  This is called a tenent, and we are using a Development tenant indicated by ```dev```.  You can create a Domain instead and not use the dev platform if you choose.  Client ID and Client Secret are going to be used very soon so just take note of them here.
 
 Head over to the Quick Start link and select PHP.  
 ![image](https://user-images.githubusercontent.com/51866741/60378333-fc361f80-99d5-11e9-81ee-836af64b7694.png)
