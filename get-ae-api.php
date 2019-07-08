@@ -1,9 +1,9 @@
 <?php
 
-require 'post-bzauth-app.php';
+require 'post-ae-app.php';
 
-function apiUserRole($userID){
-  $responseTokenFromPost = postAuthExt();
+function apiRolesList($userID){
+  $responseTokenFromPost = postForToken();
   //print_r($responseTokenFromPost);
   $decodedJsonToken = json_decode($responseTokenFromPost);
   $token = $decodedJsonToken->{'access_token'};
@@ -35,7 +35,7 @@ function apiUserRole($userID){
   }
 }
 
-function responseRoleNames($response){
+function roleNames($response){
   $roleNames = [];
   $responseData = json_decode($response);
   foreach($responseData as $roleName){

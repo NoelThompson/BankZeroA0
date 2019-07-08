@@ -42,7 +42,7 @@ class Main {
     return false;
   }
   //Break down token and extract Permissions.  Return what a role would be matching for the matching permission
-  public function checkPermissions(){
+  public function computeRoles(){
     if (!empty($this->tokenInfo->permissions)){
       foreach ($this->tokenInfo->permissions as $p){
         //echo($p);

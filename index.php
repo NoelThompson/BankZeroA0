@@ -6,8 +6,8 @@
   require __DIR__ . '/dotenv-loader.php';
 
   // Require the responses from both GET files
-  require 'get-aeapi-response.php';
-  require 'get-bzapi-response.php';
+  require 'get-ae-api.php';
+  require 'get-rbac-api.php';
 
   use Auth0\SDK\Auth0;
   use Auth0\SDK\JWTVerifier;
@@ -106,15 +106,15 @@
                   <tr>
                     <td>Authorization Extension</td>
                     <td><?php
-                      $subStr = $userInfo['sub'];
-                      $userRolesResponse = apiUserRole($subStr);
-                      responseRoleNames($userRolesResponse);
+                      $userID = $userInfo['sub'];
+                      $userRoles = apiRolesList($userID);
+                      roleNames($userRoles);
                     ?></td>
                   </tr>
                   <tr>
                     <td>NEW RBAC Core</td>
                     <td><?php
-                      print_r(bzApiUserPermissions($userToken));
+                      print_r(rbacUserRole($userToken));
                     ?></td>
                   </tr>
                 </table>
@@ -123,11 +123,11 @@
                 <h3><br>
                 <form>
                 <?php
-                if(bzApiUserPermissions($userToken) == 'BZ Manager'){ ?>
+                if(rbacUserRole($userToken) == 'BZ Manager'){ ?>
                   <input type="text" name="Manager" value="edit me"><br>
                 <?php
                 }
-                if(bzApiUserPermissions($userToken) == 'BZ Employee'){ ?>
+                if(rbacUserRole($userToken) == 'BZ Employee'){ ?>
                   <input type="text" name="Employee" value="can't edit me" readonly><br>
                 <?php
                 } ?>

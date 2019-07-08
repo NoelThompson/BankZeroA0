@@ -121,7 +121,7 @@
 
   $router->get('/api/private-permissions', function() use ($app){
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($app->checkPermissions());
+    echo json_encode($app->computeRoles());
   });
 
   $router->set404(function() {

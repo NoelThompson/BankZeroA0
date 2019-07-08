@@ -1,6 +1,6 @@
 <?php
 
-function bzApiUserPermissions($token){
+function rbacUserRole($token){
 
   $curl = curl_init();
 
