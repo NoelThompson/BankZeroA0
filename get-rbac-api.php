@@ -4,6 +4,9 @@ function rbacUserRole($token){
 
   $curl = curl_init();
 
+/* Calling an endpoint for our custom API with our Access token for the user.
+Expecting a response back that either the user is a Manager or Employee */
+
   curl_setopt_array($curl, array(
     CURLOPT_URL => "http://localhost:3100/api/private-permissions",
     CURLOPT_RETURNTRANSFER => true,
@@ -23,7 +26,6 @@ function rbacUserRole($token){
   if ($err) {
     echo "cURL Error #:" . $err;
   } else {
-    //echo $response;
     $noQuotes = str_replace('"', "", $response);
     return $noQuotes;
   }

@@ -2,6 +2,9 @@
 function postForToken(){
   $curl = curl_init();
 
+/* Authorization API used for Client Credentials flow.  This is the OAuth 2.0 grant that server processes use to access an API.
+Use this endpoint to directly request an Access Token by using the Client's credentials (a Client ID and a Client Secret). */
+
   curl_setopt_array($curl, array(
     CURLOPT_URL => "https://dev-fctx2bhe.auth0.com/oauth/token",
     CURLOPT_RETURNTRANSFER => true,

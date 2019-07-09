@@ -4,12 +4,12 @@ require 'post-ae-app.php';
 
 function apiRolesList($userID){
   $responseTokenFromPost = postForToken();
-  //print_r($responseTokenFromPost);
   $decodedJsonToken = json_decode($responseTokenFromPost);
   $token = $decodedJsonToken->{'access_token'};
-  //print_r($token);
 
   $curl = curl_init();
+
+/* Authorization Extenion API used here.  Using this endpoint to get the roles of a single user, based on its unique identifier.*/
 
   curl_setopt_array($curl, array(
     CURLOPT_URL => "https://dev-fctx2bhe.us8.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api/users/".$userID."/roles",
@@ -30,10 +30,11 @@ function apiRolesList($userID){
   if ($err) {
     echo "cURL Error #:" . $err;
   } else {
-    //echo $response;
     return $response;
   }
 }
+
+/* Taking the response of all roles for a user, creating an array of them, to then create a string separated by commas*/
 
 function roleNames($response){
   $roleNames = [];
